@@ -1,5 +1,5 @@
 {
-  "name": "v-money",
+  "name": "v-money-no-negative",
   "version": "0.8.3",
   "description": "Vue currency input/directive mask",
   "main": "dist/v-money.js",
@@ -20,7 +20,8 @@
     "mask",
     "directive",
     "currency",
-    "money"
+    "money",
+    "no negative"
   ],
   "files": [
     "dist/"
@@ -41,5 +42,17 @@
     "size-limit": "^0.11.6",
     "vue-cli": "2.8.2",
     "vuetify": "^0.16.7"
-  }
+  },
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pauldenato/v-money.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pauldenato/v-money/issues"
+  },
+  "homepage": "https://github.com/pauldenato/v-money#readme"
 }
