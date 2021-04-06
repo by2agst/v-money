@@ -61,10 +61,13 @@ export default {
     value: {
       immediate: true,
       handler (newValue, oldValue) {
-        const formatted = format(newValue, this.$props)
-        if (formatted !== this.formattedValue) {
-          this.formattedValue = formatted
+        if (oldValue === 0) {
+          this.formattedValue = parseFloat(newValue)
         }
+        // const formatted = format(newValue, this.$props)
+        // if (formatted !== this.formattedValue) {
+        //   this.formattedValue = formatted
+        // }
       }
     }
   },

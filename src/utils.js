@@ -5,11 +5,11 @@ function format (input, opt = defaults) {
     return ''
   }
 
-  if (typeof input === 'number') {
-    input = input.toFixed(fixed(opt.precision))
-  }
+  // if (typeof input === 'number') {
+  //   input = input.toFixed(fixed(opt.precision))
+  // }
   /* remove negative */
-  // var negative = input.indexOf('-') >= 0 ? '' : ''
+  // var negative = input.indexOf('-') >= 0 ? '-' : ''
   const negative = ''
 
   const numbers = onlyNumbers(input)
@@ -47,7 +47,7 @@ function between (min, n, max) {
 function numbersToCurrency (numbers, precision) {
   const exp = Math.pow(10, precision)
   const float = parseFloat(numbers) / exp
-  return float.toFixed(fixed(precision))
+  return (parseInt(numbers.substring(0, 1)) === 0) ? numbers : float.toFixed(fixed(precision))
 }
 
 function addThousandSeparator (integer, separator) {

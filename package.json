@@ -1,6 +1,6 @@
 {
-  "name": "v-money-no-negative",
-  "version": "0.8.3",
+  "name": "v-money",
+  "version": "0.8.4",
   "description": "Vue currency input/directive mask",
   "main": "dist/v-money.js",
   "scripts": {
