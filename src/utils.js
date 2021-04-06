@@ -82,8 +82,9 @@ function event (name) {
 }
 
 export {
+  event,
   format,
-  unformat,
+  onlyNumbers,
   setCursor,
-  event
+  unformat
 }

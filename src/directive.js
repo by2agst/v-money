@@ -1,4 +1,4 @@
-import { format, unformat, setCursor, event } from './utils'
+import { format, unformat, setCursor, event, onlyNumbers } from './utils'
 import assign from './assign'
 import defaults from './options'
 
@@ -36,13 +36,13 @@ export default function (el, binding) {
   }
 
   el.onfocus = function () {
-    // console.log('%c-focus', 'color: cyan;', { length: el.value.length, end: el.selectionEnd })
     setCursor(el, el.value.length - opt.suffix.length)
   }
 
   el.onblur = function () {
-    if (el.value !== 0) {
-      el.value = el.value.replace(/^[0.]+/, '')
+    const val = onlyNumbers(el.value)
+    if (val !== 0) {
+      el.value = format(parseFloat(val), opt)
     }
     el.dispatchEvent(event('change'))
   }
