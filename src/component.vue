@@ -9,7 +9,7 @@
 <script>
 import money from './directive'
 import defaults from './options'
-import {format, unformat} from './utils'
+import { format, unformat } from './utils'
 
 export default {
   name: 'Money',
@@ -49,7 +49,7 @@ export default {
     }
   },
 
-  directives: {money},
+  directives: { money },
 
   data () {
     return {
@@ -61,7 +61,7 @@ export default {
     value: {
       immediate: true,
       handler (newValue, oldValue) {
-        var formatted = format(newValue, this.$props)
+        const formatted = format(newValue, this.$props)
         if (formatted !== this.formattedValue) {
           this.formattedValue = formatted
         }

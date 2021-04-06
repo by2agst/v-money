@@ -8,22 +8,27 @@ function format (input, opt = defaults) {
   if (typeof input === 'number') {
     input = input.toFixed(fixed(opt.precision))
   }
-  var negative = input.indexOf('-') >= 0 ? '-' : ''
+  /* remove negative */
+  // var negative = input.indexOf('-') >= 0 ? '' : ''
+  const negative = ''
 
-  var numbers = onlyNumbers(input)
-  var currency = numbersToCurrency(numbers, opt.precision)
-  var parts = toStr(currency).split('.')
-  var integer = parts[0]
-  var decimal = parts[1]
+  const numbers = onlyNumbers(input)
+  const currency = numbersToCurrency(numbers, opt.precision)
+  const parts = toStr(currency).split('.')
+  let integer = parts[0]
+  const decimal = parts[1]
   integer = addThousandSeparator(integer, opt.thousands)
   return opt.prefix + negative + joinIntegerAndDecimal(integer, decimal, opt.decimal) + opt.suffix
 }
 
 function unformat (input, precision) {
-  var negative = input.indexOf('-') >= 0 ? -1 : 1
-  var numbers = onlyNumbers(input)
-  var currency = numbersToCurrency(numbers, precision)
-  return parseFloat(currency) * negative
+  /* remove negative */
+  // const negative = input.indexOf('-') >= 0 ? -1 : 1
+  const numbers = onlyNumbers(input)
+  const currency = numbersToCurrency(numbers, precision)
+  /* remove negative */
+  // return parseFloat(currency) * negative
+  return parseFloat(currency)
 }
 
 function onlyNumbers (input) {
@@ -40,8 +45,8 @@ function between (min, n, max) {
 }
 
 function numbersToCurrency (numbers, precision) {
-  var exp = Math.pow(10, precision)
-  var float = parseFloat(numbers) / exp
+  const exp = Math.pow(10, precision)
+  const float = parseFloat(numbers) / exp
   return float.toFixed(fixed(precision))
 }
 
@@ -62,7 +67,7 @@ function toStr (value) {
 }
 
 function setCursor (el, position) {
-  var setSelectionRange = function () { el.setSelectionRange(position, position) }
+  const setSelectionRange = function () { el.setSelectionRange(position, position) }
   if (el === document.activeElement) {
     setSelectionRange()
     setTimeout(setSelectionRange, 1) // Android Fix
@@ -71,7 +76,7 @@ function setCursor (el, position) {
 
 // https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Creating_and_triggering_events#The_old-fashioned_way
 function event (name) {
-  var evt = document.createEvent('Event')
+  const evt = document.createEvent('Event')
   evt.initEvent(name, true, true)
   return evt
 }
