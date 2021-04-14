@@ -26,6 +26,7 @@ export default function (el, binding) {
   }
 
   el.oninput = function () {
+    console.log('\n--------------------------------------------------------------------\n')
     let positionFromEnd = el.value.length - el.selectionEnd
     el.value = format(el.value, opt)
     positionFromEnd = Math.max(positionFromEnd, opt.suffix.length) // right

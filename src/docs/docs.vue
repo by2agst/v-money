@@ -3,15 +3,11 @@
 
   <h2>v-money <small class="label">Currency mask input for Vue</small></h2>
 
-  <p>
-    <img class="img-responsive centered" src="https://cdn-images-1.medium.com/max/600/1*Rpc289FpghuHrnzyVpOUig.gif" />
-  </p>
-
   <p class="text-center">
     <a class="btn" href="https://github.com/vuejs-tips/v-money">https://github.com/vuejs-tips/v-money</a>
   </p>
 
-  <label>No Negative</label>
+  <label>Custom v-money</label>
   <div class="columns">
     <div class="column col-6 col-sm-12">
       <money v-model="amount" class="form-input input-lg" v-bind="noNegative"></money>

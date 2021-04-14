@@ -69,7 +69,7 @@ function toStr (value) {
 function setCursor (el, position) {
   const setSelectionRange = function () { el.setSelectionRange(position, position) }
   if (el === document.activeElement) {
-    setSelectionRange()
+    // setSelectionRange()
     setTimeout(setSelectionRange, 1) // Android Fix
   }
 }

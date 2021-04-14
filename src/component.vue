@@ -2,6 +2,7 @@
   <input type="tel"
          :value="formattedValue"
          @change="change"
+         @focus="focus"
          v-money="{precision, decimal, thousands, prefix, suffix, allowBlank}"
          class="v-money" />
 </template>
@@ -61,9 +62,9 @@ export default {
     value: {
       immediate: true,
       handler (newValue, oldValue) {
-        if (oldValue === 0) {
-          this.formattedValue = parseFloat(newValue)
-        }
+        // if (oldValue === 0 && newValue !== 0) {
+        //   this.formattedValue = parseFloat(newValue)
+        // }
         // const formatted = format(newValue, this.$props)
         // if (formatted !== this.formattedValue) {
         //   this.formattedValue = formatted
@@ -75,6 +76,12 @@ export default {
   methods: {
     change (evt) {
       this.$emit('input', this.masked ? evt.target.value : unformat(evt.target.value, this.precision))
+    },
+    focus (evt) {
+      console.log('%c-evt', 'color: yellow;', Object.keys(evt.target))
+      if (evt.target.value === 0) {
+        evt.target.setSelectionRange(0, 1)
+      }
     }
   }
 }

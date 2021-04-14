@@ -4,5 +4,5 @@ export default {
   thousands: ',',
   decimal: '.',
   precision: 2,
-  allowBlank: false
+  allowBlank: true
 }
