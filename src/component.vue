@@ -78,7 +78,6 @@ export default {
       this.$emit('input', this.masked ? evt.target.value : unformat(evt.target.value, this.precision))
     },
     focus (evt) {
-      console.log('%c-evt', 'color: yellow;', Object.keys(evt.target))
       if (evt.target.value === 0) {
         evt.target.setSelectionRange(0, 1)
       }
