@@ -54,7 +54,8 @@ export default {
 
   data () {
     return {
-      formattedValue: ''
+      formattedValue: '',
+      firstLoad: true
     }
   },
 
@@ -65,10 +66,12 @@ export default {
         // if (oldValue === 0 && newValue !== 0) {
         //   this.formattedValue = parseFloat(newValue)
         // }
-        // const formatted = format(newValue, this.$props)
+        const formatted = format(newValue, this.$props)
         // if (formatted !== this.formattedValue) {
-        //   this.formattedValue = formatted
-        // }
+        if (this.firstLoad) {
+          this.formattedValue = formatted
+          this.firstLoad = false
+        }
       }
     }
   },

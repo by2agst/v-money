@@ -11,9 +11,11 @@
   <div class="columns">
     <div class="column col-6 col-sm-12">
       <money v-model="amount" class="form-input input-lg" v-bind="noNegative"></money>
+      <money v-model="amount2" class="form-input input-lg" v-bind="noNegative"></money>
     </div>
     <div class="column col-6 col-sm-12">
       <h3>{{amount}}</h3>
+      <h3>{{amount2}}</h3>
     </div>
   </div>
 
@@ -32,6 +34,7 @@ export default {
   data () {
     return {
       amount: 0,
+      amount2: 1000,
       noNegative: { decimal: ',', thousands: '.', prefix: '', suffix: '', precision: 0, masked: false }
     }
   }
