@@ -70,7 +70,6 @@ export default {
         const formatted = format(newValue, this.$props)
         // if (formatted !== this.formattedValue) {
         if (this.format || typeof this.valueString === 'undefined') {
-          console.log('%c-format', 'color: yellow;', newValue)
           this.formattedValue = formatted
           this.format = false
         }
