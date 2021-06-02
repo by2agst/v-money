@@ -12,10 +12,14 @@
     <div class="column col-6 col-sm-12">
       <money v-model="amount" class="form-input input-lg" v-bind="noNegative"></money>
       <money v-model="amount2" class="form-input input-lg" v-bind="noNegative"></money>
+      <money v-model="amount3" class="form-input input-lg" v-bind="noNegative"></money>
+      <money v-model="amount4" class="form-input input-lg" v-bind="noNegative"></money>
     </div>
     <div class="column col-6 col-sm-12">
       <h3>{{amount}}</h3>
       <h3>{{amount2}}</h3>
+      <h3>{{amount3}}</h3>
+      <h3>{{amount4}}</h3>
     </div>
   </div>
 
@@ -31,10 +35,24 @@ Vue.use(money)
 Vue.use(vuetify)
 
 export default {
+  beforeCreated () {
+    this.amount3 = 3000
+  },
+  created () {
+    this.amount3 = 3300
+  },
+  beforeMounted () {
+    this.amount4 = 4000
+  },
+  mounted () {
+    this.amount4 = 4400
+  },
   data () {
     return {
       amount: 0,
-      amount2: 1000,
+      amount2: 2000,
+      amount3: 0,
+      amount4: 0,
       noNegative: { decimal: ',', thousands: '.', prefix: '', suffix: '', precision: 0, masked: false }
     }
   }

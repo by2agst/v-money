@@ -55,7 +55,8 @@ export default {
   data () {
     return {
       formattedValue: '',
-      firstLoad: true
+      format: true,
+      valueString: null
     }
   },
 
@@ -68,9 +69,10 @@ export default {
         // }
         const formatted = format(newValue, this.$props)
         // if (formatted !== this.formattedValue) {
-        if (this.firstLoad) {
+        if (this.format || typeof this.valueString === 'undefined') {
+          console.log('%c-format', 'color: yellow;', newValue)
           this.formattedValue = formatted
-          this.firstLoad = false
+          this.format = false
         }
       }
     }
@@ -78,6 +80,7 @@ export default {
 
   methods: {
     change (evt) {
+      this.valueString = evt.target.value || undefined
       this.$emit('input', this.masked ? evt.target.value : unformat(evt.target.value, this.precision))
     },
     focus (evt) {
